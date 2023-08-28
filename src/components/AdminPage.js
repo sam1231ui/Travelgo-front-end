@@ -7,7 +7,15 @@ import {
   MDBTableBody,
   MDBTableHead,
   MDBBtn,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBCollapse
 } from 'mdb-react-ui-kit';
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   loading: true,
@@ -38,8 +46,12 @@ const reducer = (state, action) => {
 };
 
 const AdminPage = () => {
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, initialState);
   const [showFullList, setShowFullList] = useState(false);
+  const [bookingList, setBookingList] = useState([]);
+  const [activeTable, setActiveTable] = useState(null); // whcih table is active
+
 
   useEffect(() => {
     // Fetch profile and host data lists from API endpoints
@@ -78,10 +90,40 @@ const AdminPage = () => {
       console.error('Error blocking host:', error);
     }
   };
-
   ////////////////////////////////
+
+  const fetchBookingData = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/getallbooking');
+      if (response.ok) {
+        const bookingData = await response.json();
+        setBookingList(bookingData);
+      } else {
+        console.log('Error fetching booking data');
+      }
+    } catch (error) {
+      console.error('Error fetching booking data:', error);
+    }
+  };
+
+   
+
+  const PaymentData = async () => {
+     navigate('/payment');
+  };
+
+  const handleLogout = () => {
+    // Perform any logout-related actions (e.g., clearing tokens, states, etc.)
+    // Then navigate to the home page
+    navigate('/');
+  };
+
+
   return (
-    <div
+    
+    
+
+<div
       style={{
         position: 'absolute',
         top: 0,
@@ -92,8 +134,22 @@ const AdminPage = () => {
         overflow: 'auto',
       }}
     >
+      <button
+        onClick={handleLogout}
+        className="btn btn-secondary btn-sm"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+        }}
+      >
+        Logout
+      </button>
+
       <MDBContainer className="py-5">
+        
         <MDBRow className="justify-content-center align-items-center h-100">
+          
           <MDBCol md="8">
             <div className="card" style={{ borderRadius: '15px' }}>
               <div className="card-body p-4">
@@ -141,6 +197,11 @@ const AdminPage = () => {
                 ) : (
                   <p>No profile data available.</p>
                 )}
+                <div>
+    <button onClick={fetchBookingData} className="btn btn-primary mb-3">
+      Fetch Booking Data
+    </button>
+</div>
 
                 <h2 className="mt-4">Login List</h2>
                 <MDBTable striped bordered>
@@ -172,7 +233,39 @@ const AdminPage = () => {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-    </div>
+
+          {bookingList.length > 0 && (
+              <div className="mt-4">
+                <h2>Booking Data</h2>
+                <MDBTable striped bordered>
+                  <MDBTableHead>
+                    <tr>
+                      <th>Prop ID</th>
+                      <th>Travel ID</th>
+                      <th>Check-in</th>
+                      <th>Check-out</th>
+                      <th>Total Fare</th>
+                    </tr>
+                      </MDBTableHead>
+                      <MDBTableBody>
+                        {bookingList.map((booking, index) => (
+                          <tr key={index}>
+                            <td>{booking.prop_id.id_property}</td>
+                            <td>{booking.travel_id.id_traveller}</td>
+                            <td>{booking.checkin}</td>
+                            <td>{booking.checkout}</td>
+                            <td>{booking.totalfare}</td>
+                          </tr>
+                        ))}
+                      </MDBTableBody>
+                    </MDBTable>
+              </div>
+                )}
+
+        <button onClick={PaymentData} className="btn btn-primary mb-3">
+          Fetch SubPayment Data
+        </button>
+  </div>
   );
 };
 

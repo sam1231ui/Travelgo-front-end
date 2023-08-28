@@ -1,12 +1,9 @@
-// EntityRegistrationForm.js
-
-import { Routes,Link,Route } from 'react-router-dom';
+import { Routes, Link, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select, Button, Container } from '@mui/material';
-import HostRegister from './HostRegister';
+// import HostRegister from './HostRegister';
 import Register from './Register';
- 
- 
+import SubscriptionComponent from './SubscriptionComponent';
 
 const FormChoice = () => {
   const [selectedRole, setSelectedRole] = useState('');
@@ -21,35 +18,29 @@ const FormChoice = () => {
     // For demonstration purposes, let's just clear the selection
     setSelectedRole('redirect to');
   };
-   
-  
+
   return (
-    <Container>
-      <h2> Registration Form</h2>
+    <Container maxWidth="md" style={{ margin: '0 auto' }}>
+      <h2>Register as </h2>
       <FormControl fullWidth>
         <InputLabel>Role</InputLabel>
         <Select value={selectedRole} onChange={handleRoleChange}>
-          <MenuItem value="travellers"><Link to='/reg' className='nav-lin px3'>Traveller</Link></MenuItem>
-
-          <MenuItem value="property_owner"><Link to='/host' className='nav-lin px3'>Property_owner</Link></MenuItem>
+          <MenuItem value="travellers">
+            <Link to="/reg" className="nav-lin px3">
+              Traveller
+            </Link>
+          </MenuItem>
+          <MenuItem value="property_owner">
+            <Link to="/sub" className="nav-lin px3">
+              Property_owner
+            </Link>
+          </MenuItem>
         </Select>
       </FormControl>
-        
-            <Routes>
-              
-               <Route path='reg' element={<Register/>}></Route>
-               <Route path='host' element={<HostRegister></HostRegister>}></Route>
-
-            </Routes>
-
-           
-            
-      
-        
-        
-      
-
-      
+      {/* <Routes>
+        <Route path="reg" element={<Register />} />
+        <Route path="sub" element={<SubscriptionComponent />} />
+      </Routes> */}
     </Container>
   );
 };

@@ -9,12 +9,20 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Replace 'your-api-url' with the actual URL where you want to send the registration data
     const apiUrl = 'http://localhost:8080/regtraveller';
+
+    if (!email.endsWith('.com') ||  password.length < 8) {
+      // Show an error message or handle the validation error here
+      setEmailError('Invalid Password must be 8 character and Check Email Properly');
+      console.error('Invalid email format');
+      return;
+    }
 
     try {
       const response = await fetch(apiUrl, {
@@ -83,6 +91,7 @@ const Register = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
+                  {emailError && <div className="text-danger">{emailError}</div>}
                 </div>
                 <button type="submit" className="btn btn-primary w-100">
                   Register

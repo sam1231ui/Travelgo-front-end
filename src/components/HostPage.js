@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { IconButton, Menu, MenuItem } from '@mui/material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 
@@ -13,17 +15,17 @@ function HostPage() {
   const location = useLocation();
   const { logid, password } = location.state;
 
-  console.log(logid);
-
+  // console.log(logid);
+  const [showProfile, setShowProfile] = useState(false);
   const [profileData, setProfileData] = useState(null);
   const [propertyData, setPropertyData] = useState([]);
 
   const fetchProfileData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/getloggedhost?name="+logid+"&pass="+password);
+      const response = await fetch("http://localhost:8080/getloggedHost?id="+logid);
       if (response.ok) {
         const data = await response.json();
-        console.log(data.name);
+        console.log(data.id_host);
         setProfileData(data);
       } else {
         console.log('Failed to fetch profile data');
@@ -35,19 +37,19 @@ function HostPage() {
 
   const handleProfileButtonClick = () => {
     fetchProfileData();
+    setShowProfile(!showProfile);
   };
 
   const handleUploadPropertyButtonClick = () => {
     // Make API call for uploading property
+    // console.log(profileData.id_host);
+    const id_host = profileData.id_host;
+    navigate("/addProperty",  { state: { profileData, logid } })
     console.log('Upload Property button clicked');
     // Replace with your API call logic
   };
 
-  const handlePropButtonClick = () => {
-    // Make API call for specific action related to prop
-    console.log('Prop button clicked');
-    // Replace with your API call logic
-  };
+ 
 
   const handleLogoutButtonClick = () => {
     // Replace this with your logout logic, such as clearing session/cookies
@@ -58,7 +60,7 @@ function HostPage() {
 
   const handlePropertyButtonClick = async () => {
     try {
-      const response = await fetch("http://localhost:8080/getallprops");
+      const response = await fetch("http://localhost:8080/gethostproperty?host="+profileData.id_host);
       if (response.ok) {
         const data = await response.json();
         setPropertyData(data);
@@ -69,6 +71,10 @@ function HostPage() {
       console.error('Error fetching property data:', error);
     }
   };
+
+  useEffect(() => {
+    fetchProfileData();
+  }, []);
 
   return (
     <div>
@@ -85,11 +91,7 @@ function HostPage() {
                 Upload Property
               </button>
             </li>
-            <li className="nav-item mx-2">
-              <button className="btn btn-link nav-link white" onClick={handlePropButtonClick}>
-                Prop
-              </button>
-            </li>
+             
           </ul>
         </div>
         <button className="btn btn-warning white px-3" onClick={handleLogoutButtonClick}>
@@ -97,7 +99,7 @@ function HostPage() {
         </button>
       </nav>
 
-      {/* {profileData && (
+      {showProfile && profileData && (
         <div className="card mt-4">
           <div className="card-body">
             <h5 className="card-title">Profile</h5>
@@ -107,10 +109,10 @@ function HostPage() {
             <p className="card-text">Count: {profileData.count}</p>
           </div>
         </div>
-      )} */}
+      )}
 
 <button className="btn btn-primary mt-4" onClick={handlePropertyButtonClick}>
-        Fetch Property Data
+        Property Listed
       </button>
 
       {propertyData.length > 0 && (
@@ -124,7 +126,6 @@ function HostPage() {
                 <th>State</th>
                 <th>City</th>
                 <th>Price</th>
-                <th>Amenities</th>
               </tr>
             </thead>
             <tbody>
@@ -147,7 +148,7 @@ function HostPage() {
         </div>
       )}
 
-
+                  
 
     </div>
   );

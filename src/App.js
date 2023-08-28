@@ -9,12 +9,20 @@ import Home from './components/Home';
 import AdminPage from './components/AdminPage';
 import HostPage from './components/HostPage';
 import TravellerPage from './components/TravellerPage';
+import AddProperty from './components/AddProperty';
+import Footer from './components/Footer';
+import SubscriptionComponent from './components/SubscriptionComponent';
+import Aboutus from './components/AboutUs';
+import PropertyDetailsPage from './components/PropertyDetailsPage';
+import PaymentDetails from './components/PaymentDetails';
  
   
 
 function App() {
   return (
     <div className="App">
+
+       
 
     <header>
       <Routes>
@@ -27,12 +35,20 @@ function App() {
           <Route path='/adminPage' element={<AdminPage/>}></Route>
           <Route path='/hostPage' element={<HostPage/>}></Route>
           <Route path='/travellerPage' element={<TravellerPage/>}></Route>
+          <Route path='/addProperty' element={<AddProperty></AddProperty>}></Route>
+          <Route path='/sub' element={<SubscriptionComponent/>}></Route>
+          <Route path='/propDetails' element={<PropertyDetailsPage/>}></Route>
+          <Route path='/payment' element={<PaymentDetails/>}></Route>
       </Routes>
       </header>
+       
+
+      {/* <SubscriptionComponent></SubscriptionComponent> */}
       
       {/* <div>
       <Slide></Slide>
       </div> */}
+      {/* <Footer></Footer> */}
       
     </div>
   );

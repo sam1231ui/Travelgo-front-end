@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Slide from './SlideShow';
 import logo from '../Travel.svg'
+import Footer from './Footer';
+
 
 
 function Home() {
@@ -43,20 +45,11 @@ function Home() {
 
 
 
-                <li className="nav-item mx-2">
+                {/* <li className="nav-item mx-2">
                 <NavLink className="nav-link white" to="/about" class="nav-link">About Us</NavLink>
 
-                </li>
-
-
-
-                <li className="nav-item mx-2">
-                <NavLink className="nav-link white" to="/register" class="nav-link">Contact</NavLink>
-
-                </li>
-                  
-                   
-                     
+                </li> */}
+     
                   <li className="nav-item dropdown pe-4">
                     <li className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Registration
@@ -68,7 +61,7 @@ function Home() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/host" className="dropdown-item nav-link px-3" >
+                        <Link to="/sub" className="dropdown-item nav-link px-3" >
                           Property Owner
                         </Link>
                       </li>
@@ -87,6 +80,7 @@ function Home() {
       
   <div >
   <Slide></Slide>
+  <Footer></Footer>
 </div>
 </div>
   );
