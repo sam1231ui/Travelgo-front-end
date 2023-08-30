@@ -7,13 +7,6 @@ import {
   MDBTableBody,
   MDBTableHead,
   MDBBtn,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBCollapse
 } from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom';
 
@@ -50,7 +43,7 @@ const AdminPage = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [showFullList, setShowFullList] = useState(false);
   const [bookingList, setBookingList] = useState([]);
-  const [activeTable, setActiveTable] = useState(null); // whcih table is active
+  const [activeTable, setActiveTable] = useState(null); // which table is active
 
 
   useEffect(() => {
@@ -73,7 +66,7 @@ const AdminPage = () => {
 
   const { loading, profileList, hostList, error } = state;
 
-///////////////////////
+////////////////////////////////////
   const handleBlockButtonClick = async (idLogin) => {
     try {
         const response = await fetch("http://localhost:8080/blocklog?id_login="+idLogin);

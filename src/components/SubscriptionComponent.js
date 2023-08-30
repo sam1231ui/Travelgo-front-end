@@ -13,9 +13,10 @@ const SubscriptionComponent = () => {
   };
 
   const subscriptionData = [
+     // Add sub data and select one from here mentioned
     { id_subscribtion: 1, amount: 1000, validity: 3, props: 3 },
     { id_subscribtion: 2, amount: 1500, validity: 6, props: 5 },
-    // Add more subscription data as needed
+   
   ];
 
   const selectedSubscriptionData = subscriptionData.find(

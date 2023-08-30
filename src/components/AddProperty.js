@@ -53,7 +53,7 @@ export default function AddProperty() {
       body: JSON.stringify(propertyData),
     };
 
-    // Rest of your fetch logic
+    // Rest of fetch logic
     fetch("http://localhost:8080/saveprop", reqOptions)
     .then((resp) => {
      // resp.json();
@@ -85,7 +85,7 @@ export default function AddProperty() {
           }
           else {
             alert("Image unable to update.Try again!!");
-            // navigate('/artist_home');
+             
           }
         })
         .then(data => console.log(JSON.stringify(data)))

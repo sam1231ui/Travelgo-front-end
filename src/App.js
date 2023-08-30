@@ -1,7 +1,7 @@
 import './App.css';
- 
-import FormChoice from './components/FormChoice';
 import { Route, Routes } from 'react-router-dom';
+
+import FormChoice from './components/FormChoice';
 import Register from './components/Register';
 import HostRegister from './components/HostRegister';
 import Log from './components/Log';
@@ -10,9 +10,7 @@ import AdminPage from './components/AdminPage';
 import HostPage from './components/HostPage';
 import TravellerPage from './components/TravellerPage';
 import AddProperty from './components/AddProperty';
-import Footer from './components/Footer';
 import SubscriptionComponent from './components/SubscriptionComponent';
-import Aboutus from './components/AboutUs';
 import PropertyDetailsPage from './components/PropertyDetailsPage';
 import PaymentDetails from './components/PaymentDetails';
  
@@ -29,6 +27,7 @@ function App() {
           <Route path='' element={<Home/>}></Route>
           <Route path='/login' element={<Log/>}></Route> 
           <Route path='/choice' element={<FormChoice/>}></Route>
+          <Route path='/sub' element={<SubscriptionComponent/>}></Route>
           <Route path='/reg' element={<Register/>}></Route>
           <Route path='/host' element={<HostRegister/>}></Route>
           <Route path='/home' element={<Home/>}></Route>
@@ -36,7 +35,6 @@ function App() {
           <Route path='/hostPage' element={<HostPage/>}></Route>
           <Route path='/travellerPage' element={<TravellerPage/>}></Route>
           <Route path='/addProperty' element={<AddProperty></AddProperty>}></Route>
-          <Route path='/sub' element={<SubscriptionComponent/>}></Route>
           <Route path='/propDetails' element={<PropertyDetailsPage/>}></Route>
           <Route path='/payment' element={<PaymentDetails/>}></Route>
       </Routes>

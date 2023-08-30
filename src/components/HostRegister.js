@@ -4,9 +4,9 @@ import { useLocation } from 'react-router-dom';
 
 const HostRegister = () => {
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
+  const queryParams = new URLSearchParams(location.search); // to get sub option selected
   const id = queryParams.get('sub_id');
-  console.log(id);
+  // console.log(id);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -33,7 +33,7 @@ const HostRegister = () => {
     event.preventDefault();
 
     if (!formData.email.endsWith('.com') ||  formData.password.length < 8) {
-      // Show an error message or handle the validation error here
+      // Show an error message  
       setEmailError('Invalid Password must be 8 character or Check Email');
       console.error('Invalid email format');
       return;

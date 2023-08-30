@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { IconButton, Menu, MenuItem } from '@mui/material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 
@@ -46,13 +44,13 @@ function HostPage() {
     const id_host = profileData.id_host;
     navigate("/addProperty",  { state: { profileData, logid } })
     console.log('Upload Property button clicked');
-    // Replace with your API call logic
+    
   };
 
  
 
   const handleLogoutButtonClick = () => {
-    // Replace this with your logout logic, such as clearing session/cookies
+    // return to home page
     navigate("/")
     console.log('Logout button clicked');
   };

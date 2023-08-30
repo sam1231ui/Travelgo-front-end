@@ -103,7 +103,7 @@ function TravellerPage() {
 
   
     const checkinDate = selectedDates[bookingProperty.id_property];
-    const checkoutDate = calculateCheckoutDate(checkinDate); // You need to implement this function
+    const checkoutDate = calculateCheckoutDate(checkinDate);  
     const traveller_id = profileData.id_traveller;
     const property_id = bookingProperty.id_property;
   
@@ -206,7 +206,7 @@ function TravellerPage() {
 
         </div>
 
-        {/* ... (rest of the navigation bar code) */}
+        {/* ... (the navigation bar code) */}
       </nav>
 
       <div className="container mt-4">

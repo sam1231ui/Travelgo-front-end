@@ -14,11 +14,11 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Replace 'your-api-url' with the actual URL where you want to send the registration data
+    // api to save traveller
     const apiUrl = 'http://localhost:8080/regtraveller';
 
     if (!email.endsWith('.com') ||  password.length < 8) {
-      // Show an error message or handle the validation error here
+      // Show an error message 
       setEmailError('Invalid Password must be 8 character and Check Email Properly');
       console.error('Invalid email format');
       return;

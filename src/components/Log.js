@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -47,6 +47,8 @@ function Log() {
         const roleId = data.role_id;
         const status = data.status; 
 
+
+
         if (roleId === 0 ) {
           const logid = data.uid;
           const name = data.name;
@@ -62,7 +64,7 @@ function Log() {
           const name = data.name;
           navigate('/travellerPage', { state: { logid, name } });
           
-        }else{
+        }else {
           dispatch({ type: 'SET_ERROR', message: 'Invalid user credentials' });
         }
 

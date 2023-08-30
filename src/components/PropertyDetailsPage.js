@@ -98,20 +98,6 @@ const PropertyDetailsPage = () => {
         <p><strong>Summary</strong> {details ? details.id_ammenity.summary : 'Loading...'}</p>
          
         
-          {/* <div>
-          <p><strong>Rooms:</strong> {details.id_ammenity.rooms == null ? 0 :  details.id_ammenity.id_ammenity.rooms}</p>
-          <p><strong>Bedrooms:</strong> {details.id_ammenity.bedrooms ? details.id_ammenity.id_ammenity.bedrooms : 0 }</p>
-          <p><strong>HomeType:</strong> {details.id_ammenity.id_ammenity.home_type ? details.id_ammenity.id_ammenity.home_type : 'NA'}</p>
-          <p><strong>has_kitchen:</strong> {details.id_ammenity.id_ammenity.has_kitchen ? details.id_ammenity.id_ammenity.has_kitchen : 'NA'}</p>
-          <p><strong>has_ac:</strong> {details.id_ammenity.id_ammenity.has_ac ? details.id_ammenity.id_ammenity.has_ac : 'NA'}</p>
-          <p><strong>has_parking:</strong> {details.id_ammenity.id_ammenity.has_parking ? details.id_ammenity.id_ammenity.home_type : 'NA'}</p>
-          <p><strong>has_tv:</strong> {details.id_ammenity.id_ammenity.has_tv ? details.id_ammenity.id_ammenity.has_tv : 'NA'}</p>
-          <p><strong>has_caretaker:</strong> {details.id_ammenity.id_ammenity.has_caretaker ? details.id_ammenity.id_ammenity.has_caretaker : 'NA'}</p>
-          <p><strong>summary:</strong> {details.id_ammenity.id_ammenity.summary ? details.id_ammenity.id_ammenity.summary : 'NA'}</p>
-          </div> */}
-          
-      
-        
       </div>
       <button onClick={handleConfirmBooking}>Confirm Booking</button>
     </div>

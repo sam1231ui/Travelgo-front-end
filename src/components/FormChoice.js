@@ -1,9 +1,8 @@
-import { Routes, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select, Button, Container } from '@mui/material';
-// import HostRegister from './HostRegister';
-import Register from './Register';
-import SubscriptionComponent from './SubscriptionComponent';
+ 
+ 
 
 const FormChoice = () => {
   const [selectedRole, setSelectedRole] = useState('');
@@ -15,7 +14,7 @@ const FormChoice = () => {
   const handleSubmit = () => {
     // Handle submission or navigation based on the selected role
     console.log('Selected Role:', selectedRole);
-    // For demonstration purposes, let's just clear the selection
+    // For demonstration purposes
     setSelectedRole('redirect to');
   };
 

@@ -1,6 +1,6 @@
-import { Routes,Link,Route } from 'react-router-dom';
-import { NavLink ,Navigate} from 'react-router-dom';
-import React, { useState } from 'react';
+import { Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Slide from './SlideShow';
@@ -85,5 +85,4 @@ function Home() {
 </div>
   );
 }
-
 export default Home;
