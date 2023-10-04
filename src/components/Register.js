@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
 
     // api to save traveller
-    const apiUrl = 'http://localhost:8080/regtraveller';
+    const apiUrl = 'https://travelgo-w1zr.onrender.com/regtraveller';
 
     if (!email.endsWith('.com') ||  password.length < 8) {
       // Show an error message 

@@ -14,7 +14,7 @@ const PropertyDetailsPage = () => {
 
   const fetchDetails = async () => {
     try {
-      const response = await fetch("http://localhost:8080/getselectedproperty?id_property="+property_id);
+      const response = await fetch("https://travelgo-w1zr.onrender.com/getselectedproperty?id_property="+property_id);
       if (response.ok) {
         const data = await response.json();
         setDetails(data);
@@ -34,7 +34,7 @@ const PropertyDetailsPage = () => {
   const handleConfirmBooking = async () => {
      
     try {
-      const response = await fetch('http://localhost:8080/savebooking', {
+      const response = await fetch('https://travelgo-w1zr.onrender.com/savebooking', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

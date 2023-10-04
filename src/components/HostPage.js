@@ -20,7 +20,7 @@ function HostPage() {
 
   const fetchProfileData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/getloggedHost?id="+logid);
+      const response = await fetch("https://travelgo-w1zr.onrender.com/getloggedHost?id="+logid);
       if (response.ok) {
         const data = await response.json();
         console.log(data.id_host);
@@ -58,7 +58,7 @@ function HostPage() {
 
   const handlePropertyButtonClick = async () => {
     try {
-      const response = await fetch("http://localhost:8080/gethostproperty?host="+profileData.id_host);
+      const response = await fetch("https://travelgo-w1zr.onrender.com/gethostproperty?host="+profileData.id_host);
       if (response.ok) {
         const data = await response.json();
         setPropertyData(data);

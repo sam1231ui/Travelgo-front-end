@@ -40,7 +40,7 @@ const HostRegister = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/reghost', {
+      const response = await fetch('https://travelgo-w1zr.onrender.com/reghost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

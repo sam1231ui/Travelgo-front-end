@@ -54,7 +54,7 @@ export default function AddProperty() {
     };
 
     // Rest of fetch logic
-    fetch("http://localhost:8080/saveprop", reqOptions)
+    fetch("https://travelgo-w1zr.onrender.com/saveprop", reqOptions)
     .then((resp) => {
      // resp.json();
       console.log(resp.status);
@@ -74,7 +74,7 @@ export default function AddProperty() {
         body: fd
       }
       console.log(obj.id_property)
-      fetch("http://localhost:8080/uploadimage/"+obj.id_property,reqOptions1)
+      fetch("https://travelgo-w1zr.onrender.com/uploadimage/"+obj.id_property,reqOptions1)
         .then(resp=>{
           console.log(resp);
           if(resp.status === 200)

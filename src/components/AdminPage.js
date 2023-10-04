@@ -49,8 +49,8 @@ const AdminPage = () => {
   useEffect(() => {
     // Fetch profile and host data lists from API endpoints
     Promise.all([
-      fetch('http://localhost:8080/getalladmin'),
-      fetch('http://localhost:8080/getalllogs'),
+      fetch('https://travelgo-w1zr.onrender.com/getalladmin'),
+      fetch('https://travelgo-w1zr.onrender.com/getalllogs'),
     ])
       .then((responses) => Promise.all(responses.map((res) => res.json())))
       .then(([profileData, hostData]) => {
@@ -69,7 +69,7 @@ const AdminPage = () => {
 ////////////////////////////////////
   const handleBlockButtonClick = async (idLogin) => {
     try {
-        const response = await fetch("http://localhost:8080/blocklog?id_login="+idLogin);
+        const response = await fetch("https://travelgo-w1zr.onrender.com/blocklog?id_login="+idLogin);
 
       if (response.ok) {
         console.log('Host blocked successfully');
@@ -87,7 +87,7 @@ const AdminPage = () => {
 
   const fetchBookingData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/getallbooking');
+      const response = await fetch('https://travelgo-w1zr.onrender.com/getallbooking');
       if (response.ok) {
         const bookingData = await response.json();
         setBookingList(bookingData);

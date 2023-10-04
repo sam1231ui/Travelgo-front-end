@@ -34,7 +34,7 @@ function Log() {
     dispatch({ type: 'START_LOADING' });
 
     try {
-      const response = await fetch('http://localhost:8080/checklogin', {
+      const response = await fetch('https://travelgo-w1zr.onrender.com/checklogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

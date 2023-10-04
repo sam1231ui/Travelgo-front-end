@@ -26,7 +26,7 @@ function TravellerPage() {
 
   const fetchProfileData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/getloggedTraveller?id="+logid);
+      const response = await fetch("https://travelgo-w1zr.onrender.com/getloggedTraveller?id="+logid);
       if (response.ok) {
         const data = await response.json();
         console.log(data.name);
@@ -42,7 +42,7 @@ function TravellerPage() {
 
   const fetchPropertyListing = async () => {
     try {
-      const response = await fetch('http://localhost:8080/getallprops');
+      const response = await fetch('https://travelgo-w1zr.onrender.com/getallprops');
       if (response.ok) {
         const data = await response.json();
         setPropertyList(data);
@@ -149,7 +149,7 @@ function TravellerPage() {
 
   const fetchBookingData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/getbookingbytrveller?t="+profileData.id_traveller);
+      const response = await fetch("https://travelgo-w1zr.onrender.com/getbookingbytrveller?t="+profileData.id_traveller);
       if (response.ok) {
         const data = await response.json();
         setBookingData(data);
